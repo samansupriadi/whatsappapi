@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+ app:
+  build:
+   context: ./
+   dockerfile: Dockerfile
+  image: whatsapp
+  container_name: whatsapp
+  restart: always
+  hostname: whatsapp
+  volumes:
+   - ./app:/app
+  networks:
+   - webnet
+
+
+networks:
+ webnet:
+  external:
+   name: webnet
